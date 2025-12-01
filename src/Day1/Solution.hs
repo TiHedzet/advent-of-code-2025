@@ -1,4 +1,3 @@
-
 module Day1.Solution
 (
     runSolveFirst

@@ -1,7 +1,6 @@
 module Main where
 
 import Day1.Solution ( runSolveFirst, runSolveSecond )
-
 import Paths_advent_of_code (getDataFileName)
 
 main :: IO ()
