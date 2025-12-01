@@ -9,7 +9,7 @@ import Text.Parsec.Char (char, spaces)
 import Text.Parsec.Combinator (many1)
 import Prelude hiding (Left, Right)
 import Text.Parsec.String (Parser)
-import Control.Monad.State.Lazy (execState, State, get, put)
+import Control.Monad.State.Strict (execState, State, get, put)
 import qualified Data.Either as E
 
 data Move = LeftMove Int | RightMove Int deriving (Show)
