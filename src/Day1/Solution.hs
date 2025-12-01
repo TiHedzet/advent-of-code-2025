@@ -2,8 +2,7 @@ module Day1.Solution
 (
     runSolveFirst
     ,runSolveSecond
-)
-    where
+) where
 
 import Text.Parsec (ParseError, digit, (<?>), parse, sepEndBy, (<|>))
 import Text.Parsec.Char (char, spaces)
@@ -12,7 +11,6 @@ import Prelude hiding (Left, Right)
 import Text.Parsec.String (Parser)
 import Control.Monad.State.Lazy (execState, State, get, put)
 import qualified Data.Either as E
-import Debug.Trace (trace)
 
 data Move = LeftMove Int | RightMove Int deriving (Show)
 
@@ -47,7 +45,7 @@ runSolveSecond input = do
 processMoveWithTracking :: Move -> State (Int, Int) ()
 processMoveWithTracking move = do
     (current, count) <- get
-    let newPosition = trace (show move ++ " new position " ++ show (rotate move current) ++ " old position " ++ show current) $ rotate move current
+    let newPosition = rotate move current
     if newPosition == 0
         then put (newPosition, count + 1 + (getMoveValue move `div` 100))
         else put $ countPasses move current count
